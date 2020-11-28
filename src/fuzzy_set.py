@@ -1,8 +1,9 @@
 class fuzzy_set:
 
-    def __init__(self, Values, pertenence_function):
+    def __init__(self, Values, pertenence_function, id = None):
         self.domain = Values
         self.function = pertenence_function
+        self.id = id
 
     def altura(self):
         max = 0
