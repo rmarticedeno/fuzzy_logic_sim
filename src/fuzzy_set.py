@@ -44,6 +44,9 @@ class fuzzy_set:
             if self.function[x] != other.function[x]:
                 return False
         return True
+
+    def complement(self):
+        return fuzzy_set(self.domain, lambda x : 1 - self.function(x))
     
     # Union T Conorms
     def max(self, other):
@@ -64,6 +67,7 @@ class fuzzy_set:
 
     def Lukasiewick_diff(self, other):
         return _generate_fuzzy(self, other, lambda x,y,z: min(0, x.function(z) + y.function(z) - 1))
+
 
 def _generate_fuzzy(set1, set2, function):
     values = {} 

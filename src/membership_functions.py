@@ -40,7 +40,7 @@ def S(x , a , c):
 
 def Z(x , a , c):
     if a < x <= (a+c)/2:
-        return 1 - (2 *(x-a)/(c-a))**2)
+        return 1 - (2 *((x-a)/(c-a))**2)
     if (a+c)/2 < x < c:
         return 2 * ((x-a)/(c-a))**2
     if x >= c:
