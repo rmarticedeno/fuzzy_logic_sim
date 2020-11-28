@@ -38,3 +38,35 @@ class fuzzy_set:
 
     def frontera(self):
         return [i for i in self.domain if 0 < self.function(i) < 1 ]
+
+    def __eq__(self, other):
+        for x in self.domain:
+            if self.function[x] != other.function[x]:
+                return False
+        return True
+    
+    # Union T Conorms
+    def max(self, other):
+        return _generate_fuzzy(self, other, lambda x,y,z : max(x.function(z),y.function(z)))
+
+    def union_product(self, other):
+        return _generate_fuzzy(self, other, lambda x,y,z : (x.function(z) + y.function(z)) - x.function(z) * y.function(z))
+
+    def Lukasiewick_sum(self, other):
+        return _generate_fuzzy(self, other, lambda x,y,z: min(x.function(z) + y.function(z), 1))
+
+    # Intersection T Conorms
+    def min(self, other):
+        return _generate_fuzzy(self, other, lambda x,y,z : min(x.function(z),y.function(z)))
+    
+    def inter_product(self, other):
+        return _generate_fuzzy(self, other, lambda x,y,z : (x.function(z) * y.function(z)))
+
+    def Lukasiewick_diff(self, other):
+        return _generate_fuzzy(self, other, lambda x,y,z: min(0, x.function(z) + y.function(z) - 1))
+
+def _generate_fuzzy(set1, set2, function):
+    values = {} 
+    for x in set1.domain:
+        values[x] = function(set1, set2, x)
+    return fuzzy_set(set1.domain, lambda x : values[x])
