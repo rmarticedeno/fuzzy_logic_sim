@@ -46,6 +46,9 @@ class fuzzy_set:
                 return False
         return True
 
+    def __getitem__(self, x):
+        return self.function(x)
+
     def complement(self):
         return fuzzy_set(self.domain, lambda x : 1 - self.function(x))
     

@@ -10,4 +10,8 @@ class linguistic_variable:
         self.fuzzy_variables = {}
         for i in len(terms):
             self.fuzzy_variables[self.terms[i]] = fuzzy_set(self.domain, functions[i], self.terms[i])
+
+    def __getitem__(self, term):
+        return self.fuzzy_variables[term]
+
             
