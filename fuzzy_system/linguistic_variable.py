@@ -1,6 +1,6 @@
 from .fuzzy_set import fuzzy_set
 
-class linguistic_variable:
+class LinguisticVariable:
 
     def __init__(self, name, domain, terms, functions):
         self.name = name
