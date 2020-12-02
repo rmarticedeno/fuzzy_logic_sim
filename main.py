@@ -44,5 +44,5 @@ larsen_result = larsen.evaluate(pairs)
 
 mamdani_result = mamdani.evaluate(pairs)
 
-print(f"El resultado de inferir mediante larsen es {larsen_result}")
-print(f"El resultado de inferir mediante mamdani es {mamdani_result}")
+print(f"El resultado de inferir la calidad del servicio de wifiuh mediante larsen es {larsen_result}")
+print(f"El resultado de inferir la calidad del servicio de wifiuh mediante mamdani es {mamdani_result}")

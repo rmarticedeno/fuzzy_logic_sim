@@ -1,0 +1,202 @@
+%===================================================================================
+% JORNADA CIENTÍFICA ESTUDIANTIL - MATCOM, UH
+%===================================================================================
+% Esta plantilla ha sido diseñada para ser usada en los artículos de la
+% Jornada Científica Estudiantil, MatCom.
+%
+% Por favor, siga las instrucciones de esta plantilla y rellene en las secciones
+% correspondientes.
+%
+% NOTA: Necesitará el archivo 'jcematcom.sty' en la misma carpeta donde esté este
+%       archivo para poder utilizar esta plantila.
+%===================================================================================
+
+
+
+%===================================================================================
+% PREÁMBULO
+%-----------------------------------------------------------------------------------
+\documentclass[a4paper,10pt,twocolumn]{article}
+
+%===================================================================================
+% Paquetes
+%-----------------------------------------------------------------------------------
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{informe}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage[pdftex]{hyperref}
+%-----------------------------------------------------------------------------------
+% Configuración
+%-----------------------------------------------------------------------------------
+\hypersetup{colorlinks,%
+	    citecolor=black,%
+	    filecolor=black,%
+	    linkcolor=black,%
+	    urlcolor=blue}
+
+%===================================================================================
+
+
+
+%===================================================================================
+% Presentacion
+%-----------------------------------------------------------------------------------
+% Título
+%-----------------------------------------------------------------------------------
+\title{Informe de Proyecto Lógica Difusa}
+
+%-----------------------------------------------------------------------------------
+% Autores
+%-----------------------------------------------------------------------------------
+\author{\\
+	\name Roberto Marti Cede\~no \email \href{mailto:r.marti@estudiantes.matcom.uh.cu}{r.marti@estudiantes.matcom.uh.cu}
+	\\ \addr Grupo C412
+} 
+
+%-----------------------------------------------------------------------------------
+% Tutores
+%-----------------------------------------------------------------------------------
+\tutors{\\
+Dr. Yudivián Almeida Cruz, \emph{Facultad de Matemática y Computación, Universidad de La Habana}}
+
+%-----------------------------------------------------------------------------------
+% Headings
+%-----------------------------------------------------------------------------------
+\jcematcomheading{\the\year}{1-\pageref{end}}{Roberto Marti Cede\~no}
+
+%-----------------------------------------------------------------------------------
+\ShortHeadings{Informe Simulación}{Roberto Marti Cedeño}
+%===================================================================================
+
+
+
+%===================================================================================
+% DOCUMENTO
+%-----------------------------------------------------------------------------------
+\begin{document}
+
+%-----------------------------------------------------------------------------------
+% NO BORRAR ESTA LINEA!
+%-----------------------------------------------------------------------------------
+\twocolumn[
+%-----------------------------------------------------------------------------------
+
+\maketitle
+
+%===================================================================================
+% Resumen y Abstract
+%-----------------------------------------------------------------------------------
+\selectlanguage{spanish} % Para producir el documento en Español
+
+%-----------------------------------------------------------------------------------
+% Resumen en Español
+%-----------------------------------------------------------------------------------
+
+
+\vspace{0.5cm}
+
+%-----------------------------------------------------------------------------------
+% Palabras clave
+%-----------------------------------------------------------------------------------
+
+%-----------------------------------------------------------------------------------
+% Temas
+%-----------------------------------------------------------------------------------
+\begin{topics}
+	Simulación, Lógica Difusa.
+\end{topics}
+
+
+%-----------------------------------------------------------------------------------
+% NO BORRAR ESTAS LINEAS!
+%-----------------------------------------------------------------------------------
+\vspace{0.8cm}
+]
+%-----------------------------------------------------------------------------------
+
+
+%===================================================================================
+
+%===================================================================================
+% Introducción
+%-----------------------------------------------------------------------------------
+\section{Sistema de Inferencia}\label{sec:intro}
+%-----------------------------------------------------------------------------------
+	El sistema de inferencia difuso propuesto como solución basa su funcionamiento en los métodos de Mamdani y Larsen como mecanismos de inferencia difusa. También se implementaron varias funciones de pertenencia difusa y diferentes métodos de desfuzificación.
+	
+	\subsection{Funciones de pertenencia}
+	Como parte del sistema de inferencia se implementaron las siguientes funciones de pertenencia difusas:
+	
+	\begin{itemize}
+		\item Gamma
+		\item L
+		\item Lambda
+		\item Pi
+		\item S
+		\item Z
+		\item Gaussiana
+	\end{itemize}
+
+	\subsection{Métodos de desfuzificación}
+	Como parte de los métodos de desfuzificación propuestos con el sistema de inferencia podemos encontrar:
+	
+	\begin{itemize}
+		\item Centroide
+		\item Bisectriz
+		\item Máximo Central
+		\item Menor de los Máximos
+		\item Mayor de los Máximos
+	\end{itemize}
+
+	\subsection{Conjuntos Difusos}
+	Como parte de la solución del ejercicio, también se implementó una clase conjunto difuso donde se definieron propiedades de los conjuntos difusos tales como la altura, el soporte, el núcleo, las normalizaciones, los puntos de cruce, los alfa cortes y la frontera de un conjunto difuso.
+	
+	Finalmente se definieron algunas operaciones entre conjuntos difusos:
+	
+	\begin{itemize}
+		\item Máximo entre 2 conjuntos difusos
+		\item Unión por producto de 2 conjuntos difusos
+		\item La suma de Lukasiewick para 2 conjuntos difusos
+		\item El mínimo entre 2 conjuntos difusos
+		\item La intersección por producto de 2 conjuntos difusos
+		\item La diferencia de Lukasiewick para 2 conjuntos difusos.
+	\end{itemize}
+
+	Para la implementación del sistema de inferencia se siguió el esquema de borrosificación, luego inferencia y finalmente desborrosificación. El mecanismo de inferencia se basa en el paradigma "Modus Ponens Generalizado" el cual define las reglas como IF "antecedente" Then "consecuente". 
+
+%===================================================================================
+
+
+
+%===================================================================================
+% Desarrollo
+%-----------------------------------------------------------------------------------
+\section{Problema propuesto}\label{sec:dev}
+%-----------------------------------------------------------------------------------
+	Como parte de la política de informatización de la Universidad de La Habana se hace necesario determinar la calidad del servicio inalámbrico del campus universitario. Dada la multidisciplinariedad de la casa de altos estudios, los reportes de los estudiantes y trabajadores suelen ser ambiguos y no poseen ningún tipo de información técnica.
+	
+	Tras una conversación con varios especialistas del Nodo Central de la Universidad se determinó que los principales indicadores que influyen en la percepción de la calidad del servicio por parte de los usuarios son:
+	
+	\begin{itemize}
+		\item La cantidad de puntos de acceso inalámbricos alcanzables por un usuario
+		\item La distancia al punto de acceso inalámbrico mas cercano al usuario
+		\item El numero de usuarios conectados al unisono cercanos al usuario.
+	\end{itemize}
+
+	También se definieron las reglas que de forma general siguen estas 3 variables lingüísticas:
+	
+	\begin{enumerate}
+		\item Si la distancia al ap mas cercano es media, se encuentran algunas personas cercanas al usuario y existen algunos puntos de acceso alcanzables por sus dispositivos, entonces la calidad del servicio es regular.
+		\item Si existen muchas personas y pocos puntos de acceso, entonces la calidad del servicio es pobre.
+		\item Si existen muchos puntos de acceso cercanos al usuario o tiene pocas personas a su lado, entonces el servicio es excelente.
+	\end{enumerate}	
+
+
+\label{end}
+
+\end{document}
+
+%===================================================================================
