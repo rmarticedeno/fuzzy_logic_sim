@@ -54,10 +54,10 @@ class Inferencer:
         rule_antecedents = {}
 
         for ant in antecedents:
-            variable, domain = ant.split('is')
+            variable, domain = ant.split(' is ')
             rule_antecedents[variable.strip()] = self.variables[variable.strip()][domain.strip()]
 
-        variable, domain = consecuent.split('is')
+        variable, domain = consecuent.split(' is ')
         rule_consecuent = self.variables[variable.strip()][domain.strip()]
 
         self.rules.append(Rule(rule_antecedents, rule_consecuent, conjunction, self.larsen))

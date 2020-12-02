@@ -21,8 +21,8 @@ class Defuzzy:
         area_acc = 0
         index = 0
 
-        while(area/2 > area_acc):
-            area += fuzzy.domain[index] * image[index]
+        while(area/2 >= area_acc):
+            area_acc += fuzzy.domain[index] * image[index]
             index += 1
         
         return fuzzy.domain[index-1]
