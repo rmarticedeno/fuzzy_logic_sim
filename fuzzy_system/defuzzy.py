@@ -11,7 +11,21 @@ class Defuzzy:
     #Todo
     @staticmethod
     def bisectriz(fuzzy):
-        pass
+        area = 0
+        image = [fuzzy.function(x) for x in fuzzy.domain]
+        pairs = zip(fuzzy.domain, image)
+
+        for x,y in pairs:
+            area += x*y
+        
+        area_acc = 0
+        index = 0
+
+        while(area/2 > area_acc):
+            area += fuzzy.domain[index] * image[index]
+            index += 1
+        
+        return fuzzy.domain[index-1]
     
     @staticmethod
     def central_max(fuzzy):
