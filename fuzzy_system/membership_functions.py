@@ -56,7 +56,7 @@ class MembershipFunction:
         return 0
 
     @staticmethod
-    def Gaussiana(x , b , d):
+    def Gaussian(x , b , d):
         if x <= b:
-            return S(x , b - d , b)
-        return Z(x , b, b + d)
+            return MembershipFunction.S(x , b - d , b)
+        return MembershipFunction.Z(x , b, b + d)
