@@ -57,3 +57,17 @@ qual_terms = ['Pobre', 'Regular', 'Buena']
 
 # Calidad de la señal
 qual = LinguisticVariable("Calidad", qual_domain, qual_terms, qual_functions)
+
+#############################################################################################
+
+# disjunction
+rule1_antecedents = ["DistanciaAP is Media", "NPersonas is Algunas", "NAps is Algunos"]
+rule1_consecuents = "Calidad is Regular"
+
+# disjunction
+rule2_antecedents = ["NPersonas is Muchas", "NAps is Pocos"]
+rule2_consecuents = "Calidad is Pobre"
+
+# conjunction
+rule3_antececents = ["NPersonas is Pocas", "DistanciaAP is Cercana"]
+rule3_consecuents = "Calidad is Buena"
