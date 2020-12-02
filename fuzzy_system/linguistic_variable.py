@@ -1,4 +1,4 @@
-from fuzzy_set import fuzzy_set
+from .fuzzy_set import fuzzy_set
 
 class linguistic_variable:
 
